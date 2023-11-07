@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Article_categorie
+	
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+        <h1 class="mt-4">{{ categorie.id}}</h1>
+
+		<h1 class="mt-4">{{ categorie.nomCategorie}}</h1>
+
+	
+
+		
+		
+
+		
+
+		
+
+	
+		</div>
+
+		<div class="mt-4">
+			{{ article.marque|raw }}
+		</div>
+
+
+		
+
+		</div>
+	{% endblock %}

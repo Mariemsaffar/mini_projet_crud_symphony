@@ -1,0 +1,37 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<div class="container-fluid">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+			<li class="nav-item dropdown" style="margin-right: 5rem;">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{{ path('liste') }}" role="button" aria-haspopup="true" aria-expanded="false">les Categories</a>
+							<div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ path('cat') }}">ajouter une categorie</a>
+								
+
+							</div>
+					
+					
+					
+			</li>
+			<li class="nav-item dropdown" style="margin-right: 5rem;">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{{ path('index') }}" role="button" >les Article</a>
+							<div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ path('ajout') }}">ajouter un article</a>
+								<a class="dropdown-item" href="#">modifier un article</a>
+								<a class="dropdown-item" href="#">Supprimer un article</a>
+
+							</div>
+					
+					
+					
+			</li>
+			</div>
+		</div>
+	</div>
+</nav>
+
+
+

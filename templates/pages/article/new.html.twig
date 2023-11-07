@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ajouter un Article
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<h1 class="mt-4">Création d'un article</h1>
+		{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+		{{ form_start(form) }}
+			{{form(form)}}
+		{{form_end(form)}}
+		<a type="submit" id="article_submit" name="article[submit]" class="btn btn-primary mt-4" href={{path("index")}}>Ajouter L'article</a>
+
+		
+
+	
+
+		
+
+
+</div>
+{% endblock %}

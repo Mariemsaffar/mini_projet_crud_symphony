@@ -1,0 +1,85 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Article_categorie
+	{{ article.libelle }}
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+		<h1 class="mt-4">{{ article.libelle}}</h1>
+
+		<div class="article__image">
+			<img style="max-width: 500px;" src="{{ vich_uploader_asset(article, 'imageFile') }}">
+		</div>
+
+		<p>La moyenne de cette recette est de
+			{{ article.average|number_format(2, '.', ',') }}
+			/5</p>
+
+		<div>
+			<span class="badge bg-primary">Créée le
+				{{ article.createdAt|date('d/m/Y') }}</span>
+		</div>
+
+		<div class="mt-4">
+			{% if article.time %}
+				<p>Temps (en minute) :
+					{{ article.time|min_to_hour }}</p>
+			{% else %}
+				<p>Temps non renseigné</p>
+			{% endif %}
+		</div>
+
+		<div class="mt-4">
+			{% if article.time %}
+				<p>Difficulté :
+					{{ article.difficulty }}/5</p>
+			{% else %}
+				<p>Difficulté non renseigné</p>
+			{% endif %}
+		</div>
+
+		<div class="mt-4">
+			{% if article.time %}
+				<p>Pour
+					{{ article.nbPeople }}
+					personnes</p>
+			{% else %}
+				<p>Nombre de personnes non renseigné</p>
+			{% endif %}
+		</div>
+
+		<div class="mt-4">
+			{% if article.price %}
+				<p>Prix (en €) :
+					{{ article.price }}</p>
+			{% else %}
+				<p>Prix non renseigné</p>
+			{% endif %}
+		</div>
+
+		<div class="mt-4">
+			{{ article.description|raw }}
+		</div>
+
+		<div class="mt-4">
+			<p class="mt-4">Ingrédients</p>
+			{% for ingredient in article.ingredients %}
+				<span class="badge bg-primary">{{ ingredient.name }}</span>
+			{% endfor %}
+		</div>
+
+		<div class="mark">
+			{{ form(form) }}
+			</div>
+
+		</div>
+	{% endblock %}

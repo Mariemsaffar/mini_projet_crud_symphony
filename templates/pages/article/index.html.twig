@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}mon devoir Symphony
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-6">
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Libelle</th>
+					<th scope="col">is_diponible</th>
+					<th scope="col">price</th>
+					<th scope="col">marque</th>
+					
+					<th scope="col">image</th>
+					<th scope="col">Edition</th>
+					<th scope="col">Suppresion</th>
+				</tr>
+			</thead>
+				<tbody>
+					{% for article in lesArticles %}
+						<tr class="table-primary">
+							<th scope="row">{{ article.id }}</th>
+							<td>{{ article.libelle}}</td>
+                            <td>{{ article.isdisponible}}</td>
+							<td>{{ article.price|number_format(2, '.', ',') }}dt</td>
+							<td>{{ article.marque }}</td>
+							
+							<td>{{article.image}}</td>
+							<td>
+								<a href="{{ path('edit', { id: article.id }) }}" class="btn btn-info">Modifier</a>
+							</td>
+							<td>
+								<a href="{{ path('delete', { id: article.id }) }}" class="btn btn-warning">Supprimer</a>
+							</td>
+							</td>
+						
+							
+							<td>
+							
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+		
+	
+
+			<a href="{{path('ajout')}}" class="btn btn-primary">
+				Créer un article
+			</a>
+		
+	</div>
+{% endblock %}
